@@ -8,7 +8,7 @@ AssetTools = unreal.AssetToolsHelpers.get_asset_tools()
 
 def Flipbook_Generate(flipbookName, framePerSecond):
     ''' 为选中的Sprites 生成Flipbook '''
-    thisLogFunctionBegin('Flipbook_add_keyFrames')
+    thisLogFunctionBegin('Flipbook_Generate')
 
     _Asset_list = EditUtilityLib.get_selected_assets_of_class(unreal.PaperSprite)
 
@@ -36,4 +36,4 @@ def Flipbook_Generate(flipbookName, framePerSecond):
 
     EditAssetLib.save_loaded_asset(_Flipbook)
     
-    thisLogFunctionEnd('Flipbook_add_keyFrames')
+    thisLogFunctionEnd('Flipbook_Generate')
