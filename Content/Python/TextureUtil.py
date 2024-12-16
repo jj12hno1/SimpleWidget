@@ -79,26 +79,7 @@ def Texture2D_set_texturegroup(textureGroup):
 
         errStr = "设置纹理组%s ： %s " % (textureGroup.name, UERefName_Texture2D(_AssetPath))
         thisLogMsg(errStr)
+
+        EditAssetLib.save_loaded_asset(_AssetInstance)
     
     thisLogFunctionEnd('Texture2D_set_texturegroup')
-
-def Flipbook_add_keyFrames(sprite, frame):
-    ''' 为选中的Flipbook 添加关键帧 '''
-    thisLogFunctionBegin('Flipbook_add_keyFrames')
-
-    
-    _Flipbook = AssetTools.create_asset("newFlipbook", EditUtilityLib.get_selected_folder_paths(), unreal.Flipbook)
-    _Asset_list = EditUtilityLib.get_selected_assets_of_class(unreal.PaperSprite)
-
-    for _, _asset in enumerate(_Asset_list):
-        _AssetPath = _asset.get_path_name()
-        _AssetData = EditAssetLib.find_asset_data(_AssetPath)
-        _AssetInstance = unreal.PaperSprite.cast(_AssetData.get_asset())
-        _Flipbook.add_key_frame(_AssetInstance)
-
-        errStr = "添加关键帧%s ： %s " % (UERefName_PaperFlipbook(_Path), UERefName_PaperSprite(_AssetPath))
-        thisLogMsg(errStr)
-
-    EditAssetLib.save_loaded_asset(_Flipbook)
-    
-    thisLogFunctionEnd('Flipbook_add_keyFrames')
